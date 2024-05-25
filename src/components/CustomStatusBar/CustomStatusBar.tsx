@@ -8,7 +8,7 @@ interface Props {
   barStyle?: 'dark-content' | 'light-content';
 }
 
-const CustomStatusBar = ({
+export const CustomStatusBar = ({
   backgroundColor,
   barStyle = 'dark-content',
 }: Props) => {
@@ -24,5 +24,3 @@ const CustomStatusBar = ({
     </View>
   );
 };
-
-export default CustomStatusBar;

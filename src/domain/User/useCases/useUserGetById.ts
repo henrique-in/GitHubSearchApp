@@ -5,8 +5,8 @@ import {UserServices} from '../userServices';
 export const useUserGetById = () => {
   const mutation = useMutation({
     mutationFn: (username: string) => UserServices.getUser(username),
-    onSuccess: user => {
-      console.log(user);
+    onSuccess: data => {
+      console.log(data);
     },
     onError: error => {
       console.log(error);
@@ -19,5 +19,6 @@ export const useUserGetById = () => {
     isLoading: mutation.isPending,
     isError: mutation.isError,
     error: mutation.error,
+    handleGetUser: mutation.mutate,
   };
 };

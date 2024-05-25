@@ -1,12 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
+import {CustomStatusBar} from '@components';
+import {RegisterScreens} from '@screens';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import {LogoComponent} from './src/brand/LogoComponent';
-import CustomStatusBar from './src/components/CustomStatusBar/CustomStatusBar';
-import {Responsive} from './src/services';
 import {colors} from './src/theme/colors';
 
 const queryClient = new QueryClient();
@@ -20,8 +19,7 @@ const App = () => {
           barStyle="light-content"
         />
         <View style={styles.container}>
-          <LogoComponent percentWidth={Responsive.widthScale(0.5)} />
-          <Text style={{color: 'black'}}>Hello World</Text>
+          <RegisterScreens />
         </View>
       </SafeAreaProvider>
     </QueryClientProvider>
