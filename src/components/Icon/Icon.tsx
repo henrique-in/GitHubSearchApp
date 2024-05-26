@@ -1,7 +1,15 @@
 import React from 'react';
 import {Pressable} from 'react-native';
 
-import {AccountCircle} from '../../assets/icons/AccountCircle';
+import {
+  AccountCircleIcon,
+  ChevronRightIcon,
+  BusinessIcon,
+  PlaceIcon,
+  StartIcon,
+  TrashIcon,
+  ArrowLeftIcon,
+} from '../../assets';
 
 export interface IconBase {
   size?: number;
@@ -29,7 +37,13 @@ export function Icon({name, size, color = 'black', onPress}: IconProps) {
 }
 
 const iconRegistry = {
-  'account-circle': AccountCircle,
+  'account-circle': AccountCircleIcon,
+  business: BusinessIcon,
+  star: StartIcon,
+  place: PlaceIcon,
+  'chevron-right': ChevronRightIcon,
+  trash: TrashIcon,
+  'arrow-left': ArrowLeftIcon,
 };
 
 type IconType = typeof iconRegistry;

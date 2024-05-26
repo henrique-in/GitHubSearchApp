@@ -12,12 +12,22 @@ const getRepo = async (username: string) => {
 };
 
 const saveUserRepo = async (userId: number, repoData: IRepository[]) => {
-  try {
-    await asyncStorage.setItem(`${userId}`, repoData);
-  } catch (error) {}
+  await asyncStorage.setItem(`${userId}`, repoData);
+};
+
+const loadRepo = async (userId: number): Promise<IRepository[]> => {
+  const repo = await asyncStorage.getItem(`${userId}`);
+
+  return repo;
+};
+
+const removeRepo = async (userId: number) => {
+  await asyncStorage.removeItem(`${userId}`);
 };
 
 export const RepoService = {
   getRepo,
   saveUserRepo,
+  loadRepo,
+  removeRepo,
 };

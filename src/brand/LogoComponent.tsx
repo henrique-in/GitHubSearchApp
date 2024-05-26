@@ -1,18 +1,20 @@
 import React from 'react';
 import {FlexAlignType, Image} from 'react-native';
 
+import {Responsive} from '@services';
+
 interface Props {
-  percentWidth?: number;
+  width?: number;
   alignSelf?: FlexAlignType;
 }
 export const LogoComponent = ({
-  percentWidth = 1,
+  width = Responsive.widthScale(0.5),
   alignSelf = 'center',
 }: Props) => {
   return (
     <Image
       source={require('./appLogo.png')}
-      style={{width: percentWidth, alignSelf}}
+      style={{width: width, alignSelf}}
       resizeMode="contain"
     />
   );

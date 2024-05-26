@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 import {Responsive} from '@services';
 import {colors} from '@theme';
@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    marginBottom: Responsive.heightScale(0.05),
+    paddingBottom: Platform.OS === 'android' ? 10 : 30,
   },
   content: {
     flex: 1,
@@ -29,5 +29,15 @@ export const styles = StyleSheet.create({
   },
   inputContent: {
     marginBottom: 40,
+  },
+  textFooter: {
+    color: colors.gray,
+    alignSelf: 'center',
+  },
+  textUnderline: {
+    textDecorationLine: 'underline',
+  },
+  buttonContainer: {
+    padding: Responsive.widthScale(0.09),
   },
 });

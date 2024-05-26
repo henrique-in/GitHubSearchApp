@@ -19,7 +19,7 @@ interface Props extends Omit<TouchableOpacityProps, 'disabled' | 'style'> {
 }
 export const Button = ({
   title,
-  percentWidth = 100,
+  percentWidth = 50,
   height = 55,
   loading,
   disabled,

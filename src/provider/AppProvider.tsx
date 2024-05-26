@@ -1,6 +1,12 @@
 import React, {createContext, useEffect, useState} from 'react';
 
-import {IRepository, IUser, RegisterServices} from '@domain';
+import {
+  IRepository,
+  IUser,
+  RegisterServices,
+  RepoService,
+  UserServices,
+} from '@domain';
 import {asyncStorage} from '@services';
 
 import {AuthUser} from './AppProviderTypes';
@@ -9,7 +15,6 @@ export const AppProviderContext = createContext<AuthUser>({} as AuthUser);
 
 export function AppProvider({children}: React.PropsWithChildren<{}>) {
   const [users, setUsers] = useState<IUser[]>([]);
-  const [repository, setRepository] = useState<IRepository[]>([]);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,27 +34,35 @@ export function AppProvider({children}: React.PropsWithChildren<{}>) {
     if (users.length === 0) {
       loadData();
     }
-  }, []);
+  }, [users]);
 
   const saveData = async (user: IUser, repo: IRepository[]) => {
     const allUser = [...users, user];
-    setUsers(allUser);
 
     await RegisterServices.saveUserData(user.id, {users: allUser, repo});
+    setUsers(allUser);
   };
 
-  const removeUser = async (id: number) => {
+  const removeUser = async (id: number): Promise<boolean> => {
     const newUsers = users.filter(user => user.id !== id);
     setUsers(newUsers);
+    Promise.all([
+      await UserServices.removeUser(newUsers),
+      await RepoService.removeRepo(id),
+    ]);
+
+    return newUsers.length === 0;
   };
 
   return (
     <AppProviderContext.Provider
       value={{
         isLoading,
-        repositorys: repository,
         users: users,
+        hasUsers: users.length > 0,
         saveData,
+        removeUser,
+        loadData,
       }}>
       {children}
     </AppProviderContext.Provider>

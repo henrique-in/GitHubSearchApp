@@ -4,7 +4,7 @@ const pallette = {
   gray: '#7E7E7E',
   gray2: '#BDBDBD',
   gray3: '#D9D9D9',
-
+  gray4: '#F8F8F8',
   red: '#f00',
   green: '#0f0',
   blue: '#00f',
@@ -15,5 +15,6 @@ const pallette = {
 export const colors = {
   primary: pallette.internationalOrange,
   background: pallette.white,
+  backgroundSecondary: pallette.gray4,
   ...pallette,
 };

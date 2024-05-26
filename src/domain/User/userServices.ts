@@ -15,7 +15,12 @@ const saveUserData = async (userData: IUser[]) => {
   } catch (error) {}
 };
 
+const removeUser = async (users: IUser[]) => {
+  await asyncStorage.setItem('@GithubUsers:user', users);
+};
+
 export const UserServices = {
   getUser,
   saveUserData,
+  removeUser,
 };

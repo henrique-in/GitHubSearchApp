@@ -1,3 +1,5 @@
+import {Alert} from 'react-native';
+
 import {useAppData} from '@hooks';
 import {MutationOptions} from '@infra';
 import {useMutation} from '@tanstack/react-query';
@@ -21,7 +23,7 @@ export const useRegisterUser = (options?: MutationOptions<IRegister>) => {
   const handleRegister = (username: string) => {
     const verifyUser = users.find(user => user.login === username);
     if (verifyUser) {
-      throw new Error('Este usuário já existe');
+      return Alert.alert('Erro', 'Usuário ja existe');
     }
 
     mutation.mutate(username);

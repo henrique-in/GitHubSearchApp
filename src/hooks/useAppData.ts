@@ -6,7 +6,7 @@ export function useAppData(): AuthUser {
   const context = useContext(AppProviderContext);
 
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error('useAppData must be used within an AppProvider');
   }
   return context;
 }
