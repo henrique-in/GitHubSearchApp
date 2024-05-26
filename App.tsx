@@ -2,11 +2,11 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import {CustomStatusBar} from '@components';
-import {RegisterScreens} from '@screens';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {AppProvider} from './src/provider/AppProvider';
+import {Routes} from './src/routes/Routes';
 import {colors} from './src/theme/colors';
 
 const queryClient = new QueryClient();
@@ -21,7 +21,7 @@ const App = () => {
             barStyle="light-content"
           />
           <View style={styles.container}>
-            <RegisterScreens />
+            <Routes />
           </View>
         </SafeAreaProvider>
       </QueryClientProvider>

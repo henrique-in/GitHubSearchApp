@@ -27,7 +27,6 @@ export function AppProvider({children}: React.PropsWithChildren<{}>) {
 
   useEffect(() => {
     if (users.length === 0) {
-      console.log('users load');
       loadData();
     }
   }, []);
@@ -37,6 +36,11 @@ export function AppProvider({children}: React.PropsWithChildren<{}>) {
     setUsers(allUser);
 
     await RegisterServices.saveUserData(user.id, {users: allUser, repo});
+  };
+
+  const removeUser = async (id: number) => {
+    const newUsers = users.filter(user => user.id !== id);
+    setUsers(newUsers);
   };
 
   return (

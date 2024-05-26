@@ -43,6 +43,8 @@ const saveUserData = async (
   } catch (error) {}
 };
 
+const removeUserData = async (userId: number) => {};
+
 export const RegisterServices = {
   getUserData,
   saveUserData,

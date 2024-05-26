@@ -2,7 +2,7 @@ import React from 'react';
 import {FlexAlignType, Image} from 'react-native';
 
 interface Props {
-  percentWidth: number;
+  percentWidth?: number;
   alignSelf?: FlexAlignType;
 }
 export const LogoComponent = ({

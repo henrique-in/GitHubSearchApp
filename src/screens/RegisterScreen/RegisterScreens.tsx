@@ -4,19 +4,15 @@ import {Alert, Text, View} from 'react-native';
 import {LogoComponent} from '@brand';
 import {Button, Input} from '@components';
 import {useRegisterUser} from '@domain';
-import {useAppData} from '@hooks';
 import {Responsive} from '@services';
 import {colors} from '@theme';
 
 import {styles} from './Register.styles';
 
-export const RegisterScreens = () => {
+export const RegisterScreen = () => {
   const [text, setText] = useState('');
-  const {users} = useAppData();
+
   const {isLoading, handleRegisterUser} = useRegisterUser({
-    onSuccess: data => {
-      console.log('success');
-    },
     onError: error => {
       Alert.alert('Erro', error);
     },
