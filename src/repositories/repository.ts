@@ -1,12 +1,10 @@
-import {api} from '../api/config';
-import {IRepositoryAPI} from '../domain/ListRepositories/RepositoryTypes';
+import {api} from '@api';
+import {IRepositoryAPI} from '@domain';
 
-const RepositoryApi = {
+export const RepositoryApi = {
   getRepo: async (username: string) => {
-    const {data} = await api.get<IRepositoryAPI>(`users/${username}/repos`);
+    const {data} = await api.get<IRepositoryAPI[]>(`users/${username}/repos`);
 
     return data;
   },
 };
-
-export default RepositoryApi;

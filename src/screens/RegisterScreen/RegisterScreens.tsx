@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Alert, Text, View} from 'react-native';
 
 import {LogoComponent} from '@brand';
 import {Button, Input} from '@components';
-import {useUserGetById} from '@domain';
+import {useRegisterUser} from '@domain';
+import {useAppData} from '@hooks';
 import {Responsive} from '@services';
 import {colors} from '@theme';
 
@@ -11,8 +12,15 @@ import {styles} from './Register.styles';
 
 export const RegisterScreens = () => {
   const [text, setText] = useState('');
-
-  const {isLoading, handleGetUser} = useUserGetById();
+  const {users} = useAppData();
+  const {isLoading, handleRegisterUser} = useRegisterUser({
+    onSuccess: data => {
+      console.log('success');
+    },
+    onError: error => {
+      Alert.alert('Erro', error);
+    },
+  });
 
   return (
     <View style={styles.container}>
@@ -28,6 +36,7 @@ export const RegisterScreens = () => {
             iconName="account-circle"
             colorIcon={colors.gray3}
             placeholder="@username"
+            value={text.trim().toLocaleLowerCase()}
             placeholderTextColor={colors.gray}
             containerStyle={{marginBottom: 40}}
             onChangeText={setText}
@@ -37,7 +46,7 @@ export const RegisterScreens = () => {
             percentWidth={100}
             disabled={!text}
             loading={isLoading}
-            onPress={() => handleGetUser(text)}
+            onPress={() => handleRegisterUser(text)}
           />
         </View>
       </View>

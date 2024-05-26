@@ -108,3 +108,12 @@ export interface License {
   url: string;
   node_id: string;
 }
+
+export interface IRepository {
+  id: number;
+  name: string;
+  description: string;
+  stargazers_count: number;
+  language: string;
+  watchers_count: number;
+}

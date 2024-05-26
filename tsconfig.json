@@ -12,7 +12,9 @@
       "@routes": ["./src/routes"],
       "@theme": ["./src/theme"],
       "@domain": ["./src/domain"],
-      "@brand": ["./src/brand"]
+      "@brand": ["./src/brand"],
+      "@infra": ["./src/infra"],
+      "@hooks": ["./src/hooks"]
     }
   }
 }

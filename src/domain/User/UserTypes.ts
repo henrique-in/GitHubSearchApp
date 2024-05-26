@@ -32,3 +32,14 @@ export interface IUserAPI {
   created_at: string;
   updated_at: string;
 }
+
+export interface IUser {
+  name: string;
+  login: string;
+  company: string;
+  blog: string;
+  location: string;
+  starred_total: number;
+  avatar_url: string;
+  id: number;
+}

@@ -1,12 +1,10 @@
-import {api} from '../api/config';
-import {IUserAPI} from '../domain/User/UserTypes';
+import {api} from '@api';
+import {IUserAPI} from '@domain';
 
-const UserApi = {
+export const UserApi = {
   getUser: async (username: string) => {
     const {data} = await api.get<IUserAPI>(`users/${username}`);
 
     return data;
   },
 };
-
-export default UserApi;
