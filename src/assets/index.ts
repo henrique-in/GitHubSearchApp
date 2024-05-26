@@ -5,3 +5,8 @@ export * from './icons/PlaceIcon';
 export * from './icons/ChevronRightIcon';
 export * from './icons/TrashIcon';
 export * from './icons/ArrowLeftIcon';
+export * from './icons/LanguageIcon';
+export * from './icons/UserAccount';
+export * from './icons/TimeIcon';
+export * from './icons/PlusIcon';
+export * from './icons/EditIcon';

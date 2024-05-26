@@ -5,16 +5,15 @@ import {colors} from '@theme';
 
 export const styles = StyleSheet.create({
   container: {
-    maxWidth: Responsive.widthScale(0.29),
-
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 10,
+    backgroundColor: colors.gray5,
+    borderRadius: 50,
+    paddingHorizontal: 16,
+    paddingVertical: 5,
+    marginRight: 5,
   },
   title: {
-    color: colors.gray,
     fontSize: Responsive.fontScale(12),
     fontWeight: '400',
-    marginLeft: 5,
+    color: colors.black,
   },
 });

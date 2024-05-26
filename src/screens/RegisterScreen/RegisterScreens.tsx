@@ -18,6 +18,7 @@ import {CommonActions} from '@react-navigation/native';
 import {AppScreenProps} from '@routes';
 import {Responsive} from '@services';
 import {colors} from '@theme';
+import {dateUtils} from '@utils';
 
 import {styles} from './Register.styles';
 

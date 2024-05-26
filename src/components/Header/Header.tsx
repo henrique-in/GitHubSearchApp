@@ -26,10 +26,7 @@ export const Header = ({type = 'primary', avatarUrl}: Props) => {
     <View style={styles.container}>
       {type === 'primary' && (
         <>
-          <LogoComponent
-            alignSelf="flex-start"
-            width={Responsive.widthScale(0.3)}
-          />
+          <LogoComponent width={Responsive.widthScale(0.3)} />
           <Button
             title="Adicionar novo"
             percentWidth={45}
@@ -42,7 +39,7 @@ export const Header = ({type = 'primary', avatarUrl}: Props) => {
       {type === 'secondary' && (
         <>
           <Icon name="arrow-left" onPress={() => navigation.goBack()} />
-          <Avatar url={avatarUrl as string} size={32} />
+          <Avatar url={avatarUrl as string} size={20} />
         </>
       )}
     </View>

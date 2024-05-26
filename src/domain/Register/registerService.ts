@@ -1,6 +1,6 @@
-import {IRepository} from '@domain';
+import {IRepository, ListRepositoryService} from '@domain';
 
-import {RepoService} from '../ListRepositories/repoService';
+import {listRepoAdapter} from '../ListRepositories/listRepositoryAdapter';
 import {userAdapter} from '../User/userAdapter';
 import {UserServices} from '../User/userServices';
 import {IUser} from '../User/UserTypes';
@@ -13,7 +13,7 @@ const getUserData = async (username: string) => {
     );
   }
 
-  const repoData = await RepoService.getRepo(username);
+  const repoData = await ListRepositoryService.getRepo(username);
 
   if (!repoData) {
     throw new Error(
@@ -33,7 +33,7 @@ const getUserData = async (username: string) => {
   );
   return {
     user: userAdapter.toUser(userData, getTotalStarCount),
-    repo: repoStars,
+    repo: listRepoAdapter.toRepo(repoStars),
   };
 };
 
@@ -42,10 +42,8 @@ const saveUserData = async (
   data: {users: IUser[]; repo: IRepository[]},
 ) => {
   await UserServices.saveUserData(data.users);
-  await RepoService.saveUserRepo(userId, data.repo);
+  await ListRepositoryService.saveUserRepo(userId, data.repo);
 };
-
-const removeUserData = async (userId: number) => {};
 
 export const RegisterServices = {
   getUserData,

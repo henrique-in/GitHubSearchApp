@@ -9,6 +9,10 @@ import {
   StartIcon,
   TrashIcon,
   ArrowLeftIcon,
+  UserAccountIcon,
+  LanguageIcon,
+  TimeIcon,
+  EditIcon,
 } from '../../assets';
 
 export interface IconBase {
@@ -44,6 +48,11 @@ const iconRegistry = {
   'chevron-right': ChevronRightIcon,
   trash: TrashIcon,
   'arrow-left': ArrowLeftIcon,
+  'user-account': UserAccountIcon,
+  language: LanguageIcon,
+  time: TimeIcon,
+  plus: PlaceIcon,
+  edit: EditIcon,
 };
 
 type IconType = typeof iconRegistry;

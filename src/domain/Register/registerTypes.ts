@@ -1,4 +1,4 @@
-import {IRepository} from '../ListRepositories/RepositoryTypes';
+import {IRepository} from '../ListRepositories/listRepositoryTypes';
 import {IUser} from '../User/UserTypes';
 
 export interface IRegister {

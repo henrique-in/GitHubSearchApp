@@ -5,7 +5,7 @@
     "paths": {
       "@components": ["./src/components"],
       "@screens": ["./src/screens"],
-      "@utils": ["./src/utils"],
+      "@utils": ["src/utils"],
       "@api": ["./src/api"],
       "@services": ["./src/services"],
       "@assets": ["./src/assets"],

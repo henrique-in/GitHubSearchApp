@@ -116,4 +116,6 @@ export interface IRepository {
   stargazers_count: number;
   language: string;
   watchers_count: number;
+  created_at: string;
+  tags: string[];
 }

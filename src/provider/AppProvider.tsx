@@ -4,7 +4,7 @@ import {
   IRepository,
   IUser,
   RegisterServices,
-  RepoService,
+  ListRepositoryService,
   UserServices,
 } from '@domain';
 import {asyncStorage} from '@services';
@@ -48,7 +48,7 @@ export function AppProvider({children}: React.PropsWithChildren<{}>) {
     setUsers(newUsers);
     Promise.all([
       await UserServices.removeUser(newUsers),
-      await RepoService.removeRepo(id),
+      await ListRepositoryService.removeRepo(id),
     ]);
 
     return newUsers.length === 0;

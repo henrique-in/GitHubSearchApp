@@ -12,7 +12,7 @@ import {styles} from './ListUsers.styles';
 export const ListUsersScreen = ({
   navigation,
 }: AppScreenProps<'ListUsersScreen'>) => {
-  const {users, hasUsers, removeUser} = useAppData();
+  const {users, removeUser} = useAppData();
 
   const renderItem = ({item}: ListRenderItemInfo<IUser>) => {
     return (
@@ -47,7 +47,6 @@ export const ListUsersScreen = ({
         showsVerticalScrollIndicator={false}
         // eslint-disable-next-line react-native/no-inline-styles
         contentContainerStyle={{
-          flex: hasUsers ? undefined : 1,
           paddingHorizontal: 16,
         }}
       />

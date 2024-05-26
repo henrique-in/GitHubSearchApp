@@ -5,10 +5,13 @@ const pallette = {
   gray2: '#BDBDBD',
   gray3: '#D9D9D9',
   gray4: '#F8F8F8',
+  gray5: '#EBEBEB',
   red: '#f00',
   green: '#0f0',
   blue: '#00f',
   yellow: '#ff0',
+  yellow2: '#FFC700',
+  yellowOpacity: 'rgba(255, 199, 0, 0.16)',
   internationalOrange: '#FF5100',
 };
 

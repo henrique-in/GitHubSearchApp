@@ -25,7 +25,7 @@ const removeRepo = async (userId: number) => {
   await asyncStorage.removeItem(`${userId}`);
 };
 
-export const RepoService = {
+export const ListRepositoryService = {
   getRepo,
   saveUserRepo,
   loadRepo,
