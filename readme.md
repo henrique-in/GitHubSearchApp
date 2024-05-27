@@ -32,7 +32,17 @@ yarn
 cd ios && pod install && cd ..
 ```
 
-**obs:** Este comando instala os pacotes necessarios para rodar o APP no IOS e só podem ser executados no Mac Os
+## Organização do código
+
+Este projeto utiliza ESlint e Prettier para manter o co1digo mais organizado e identificar possiveis erros.
+
+####Para isso é ideal que seja instalado a extensão no seu editor de código, asism como adicionar o Prettier como formatador de codigo do mesmo
+
+#### Executar uma verificação do lint basta executar o seguinte comando
+
+```bash
+yarn  lint
+```
 
 ## Executando o Projeto
 

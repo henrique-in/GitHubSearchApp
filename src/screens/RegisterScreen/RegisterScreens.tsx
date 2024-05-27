@@ -1,6 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {
-  Alert,
   Keyboard,
   KeyboardAvoidingView,
   Linking,
@@ -18,7 +18,7 @@ import {CommonActions} from '@react-navigation/native';
 import {AppScreenProps} from '@routes';
 import {Responsive} from '@services';
 import {colors} from '@theme';
-import {dateUtils} from '@utils';
+import Toast from 'react-native-toast-message';
 
 import {styles} from './Register.styles';
 
@@ -39,7 +39,10 @@ export const RegisterScreen = ({
       );
     },
     onError: error => {
-      Alert.alert('Erro', error);
+      Toast.show({
+        type: 'error',
+        text1: error,
+      });
     },
   });
 

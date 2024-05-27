@@ -12,8 +12,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: colors.white,
-    minHeight: Responsive.heightScale(0.5),
-
+    height: Responsive.heightScale(0.6),
     width: '90%',
     borderRadius: 10,
     paddingHorizontal: 20,
@@ -56,5 +55,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  tagsContainerScroll: {
+    marginVertical: 15,
   },
 });

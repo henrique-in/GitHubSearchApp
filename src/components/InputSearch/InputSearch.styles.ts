@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.background,
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 20,
     marginVertical: 10,
     borderRadius: 5,

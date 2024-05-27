@@ -1,4 +1,6 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useMemo} from 'react';
+
+import {suggestionsTagsDataBase} from '@infra';
 
 import {ListRepositoryService} from '../listRepositoryService';
 
@@ -6,9 +8,13 @@ export const useRepoTags = () => {
   const [tags, setTags] = useState<string[]>([]);
   const loadTags = async () => {
     const data: string[] = await ListRepositoryService.getTags();
-    if (data) {
-      setTags(data);
+    if (!data) {
+      await ListRepositoryService.saveTags(suggestionsTagsDataBase);
+
+      return setTags(suggestionsTagsDataBase);
     }
+
+    setTags(data);
   };
 
   const removeTag = async (tag: string) => {
@@ -23,25 +29,28 @@ export const useRepoTags = () => {
     return await ListRepositoryService.saveTags(tagFilter);
   };
 
-  const getRandomTags = (tags: string[], count: number): string[] => {
-    for (let i = tags.length - 1; i > 0; i--) {
+  const getRandomTags = (tagsSearch: string[], count: number): string[] => {
+    for (let i = tagsSearch.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [tags[i], tags[j]] = [tags[j], tags[i]];
+      [tagsSearch[i], tagsSearch[j]] = [tagsSearch[j], tagsSearch[i]];
     }
 
-    return tags.slice(0, count);
+    return tagsSearch.slice(0, count);
   };
 
   useEffect(() => {
     loadTags();
   }, []);
 
+  const suggestedTags = useMemo(() => getRandomTags(tags, 2), [tags]);
+  const suggestedModal = useMemo(() => getRandomTags(tags, 6), [tags]);
+
   return {
     loadTags,
     removeTag,
     addTags,
     tagList: tags,
-    suggestedTags: getRandomTags(tags, 3),
-    suggestedModal: getRandomTags(tags, 6),
+    suggestedTags,
+    suggestedModal,
   };
 };

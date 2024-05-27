@@ -20,4 +20,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  list: {
+    paddingBottom: 30,
+  },
 });

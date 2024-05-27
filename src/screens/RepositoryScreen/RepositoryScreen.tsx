@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -49,15 +49,6 @@ export const RepositoryScreen = ({
     return <CardRepo repo={item} handleEditTags={() => toogleModal(item)} />;
   };
 
-  const scrollViewRef = useRef<ScrollView>(null);
-
-  useEffect(() => {
-    // A função será executada após o componente ser montado
-    if (scrollViewRef.current) {
-      scrollViewRef.current.scrollToEnd({animated: false});
-    }
-  }, []);
-
   return (
     <View style={styles.container}>
       <Header type="secondary" avatarUrl={user.avatar_url} />
@@ -76,10 +67,7 @@ export const RepositoryScreen = ({
           />
           {filterTag && (
             <View style={styles.row}>
-              <ScrollView
-                ref={scrollViewRef}
-                horizontal
-                showsHorizontalScrollIndicator={false}>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 {suggestedTags.map((tag, index) => (
                   <Tag
                     key={index}
@@ -102,6 +90,7 @@ export const RepositoryScreen = ({
             keyExtractor={item => item.id.toString()}
             renderItem={renderItem}
             showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.list}
           />
         </View>
       )}

@@ -11,4 +11,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
   },
+  list: {
+    paddingBottom: 30,
+    paddingHorizontal: 15,
+  },
 });

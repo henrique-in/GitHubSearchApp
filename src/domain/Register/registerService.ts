@@ -8,28 +8,18 @@ import {IUser} from '../User/UserTypes';
 const getUserData = async (username: string) => {
   const userData = await UserServices.getUser(username);
   if (!userData) {
-    throw new Error(
-      'Não foi possivel encontrar um usuário com o username informado',
-    );
+    throw new Error('Usuário informado não existe');
   }
 
   const repoData = await ListRepositoryService.getRepo(username);
 
   if (!repoData) {
-    throw new Error(
-      'Não foi possivel encontrar um repositório para este usuário',
-    );
-  }
-
-  const repoStars = repoData.filter(repo => repo.stargazers_count > 0);
-
-  if (repoStars.length === 0) {
-    throw new Error('Este usuário não possui repositórios com estrelas');
+    throw new Error('Este usuário não curtiu nenhum repositório');
   }
 
   return {
-    user: userAdapter.toUser(userData, repoStars.length),
-    repo: listRepoAdapter.toRepo(repoStars),
+    user: userAdapter.toUser(userData, repoData.length),
+    repo: listRepoAdapter.toRepo(repoData),
   };
 };
 

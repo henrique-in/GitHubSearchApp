@@ -45,10 +45,7 @@ export const ListUsersScreen = ({
         keyExtractor={item => item.id.toString()}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
-        // eslint-disable-next-line react-native/no-inline-styles
-        contentContainerStyle={{
-          paddingHorizontal: 16,
-        }}
+        contentContainerStyle={styles.list}
       />
     </View>
   );

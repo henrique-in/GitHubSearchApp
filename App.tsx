@@ -6,6 +6,7 @@ import {Routes} from '@routes';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {colors} from '@theme';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 
 import {AppProvider} from './src/provider/AppProvider';
 
@@ -22,6 +23,7 @@ const App = () => {
           />
           <View style={styles.container}>
             <Routes />
+            <Toast />
           </View>
         </SafeAreaProvider>
       </QueryClientProvider>

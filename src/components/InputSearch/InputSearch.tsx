@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {TextInput, TouchableOpacity, View} from 'react-native';
 
 import {colors} from '@theme';
@@ -35,6 +35,14 @@ export const InputSearch = ({onChange, value, filterTag, toogleTag}: Props) => {
           value={value}
           onChangeText={text => onChange(text)}
         />
+        {filterTag && (
+          <TouchableOpacity
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{position: 'absolute', right: 20, zIndex: 1}}
+            onPress={() => onChange('')}>
+            <Icon name="close" size={12} />
+          </TouchableOpacity>
+        )}
       </View>
       {!filterTag && (
         <TouchableOpacity

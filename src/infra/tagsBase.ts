@@ -1,4 +1,4 @@
-export const suggestionsTags = [
+export const suggestionsTagsDataBase = [
   'Java',
   'JavaScript',
   'TypeScript',
