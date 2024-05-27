@@ -36,7 +36,7 @@ cd ios && pod install && cd ..
 
 Este projeto utiliza ESlint e Prettier para manter o co1digo mais organizado e identificar possiveis erros.
 
-####Para isso é ideal que seja instalado a extensão no seu editor de código, asism como adicionar o Prettier como formatador de codigo do mesmo
+#### Para isso é ideal que seja instalado a extensão no seu editor de código, asism como adicionar o Prettier como formatador de codigo do mesmo
 
 #### Executar uma verificação do lint basta executar o seguinte comando
 
