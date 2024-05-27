@@ -1,5 +1,6 @@
 import {IRepository} from '@domain';
 import {asyncStorage} from '@services';
+import {orderRepoByName} from '@utils';
 
 import {RepositoryApi} from '../../repositories';
 
@@ -16,13 +17,21 @@ const saveUserRepo = async (userId: number, repoData: IRepository[]) => {
 };
 
 const loadRepo = async (userId: number): Promise<IRepository[]> => {
-  const repo = await asyncStorage.getItem(`${userId}`);
+  const repo: IRepository[] = await asyncStorage.getItem(`${userId}`);
 
-  return repo;
+  return orderRepoByName(repo);
 };
 
 const removeRepo = async (userId: number) => {
-  await asyncStorage.removeItem(`${userId}`);
+  return await asyncStorage.removeItem(`${userId}`);
+};
+
+const getTags = async () => {
+  return await asyncStorage.getItem('@GithubUsers:tags');
+};
+
+const saveTags = async (tags: string[]) => {
+  return await asyncStorage.setItem('@GithubUsers:tags', tags);
 };
 
 export const ListRepositoryService = {
@@ -30,4 +39,6 @@ export const ListRepositoryService = {
   saveUserRepo,
   loadRepo,
   removeRepo,
+  getTags,
+  saveTags,
 };

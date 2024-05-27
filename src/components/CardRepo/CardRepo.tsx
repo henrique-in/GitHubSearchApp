@@ -15,16 +15,7 @@ interface Props {
   handleEditTags?: () => void;
 }
 
-export const CardRepo = ({repo}: Props) => {
-  const tagsBase = [
-    'Java',
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'React Native',
-    'Front End',
-    'Back End',
-  ];
+export const CardRepo = ({repo, handleEditTags}: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.rowContent}>
@@ -36,13 +27,15 @@ export const CardRepo = ({repo}: Props) => {
           <Icon name="star" size={15} color={colors.yellow2} />
         </View>
       </View>
-      <Text style={styles.subtitle}>{repo.description}</Text>
+      {repo.description && (
+        <Text style={styles.subtitle}>{repo.description}</Text>
+      )}
 
       <View style={styles.tagsContainer}>
         {repo.tags.map((title, index) => (
           <Tag key={index} title={title} />
         ))}
-        <TouchableOpacity style={styles.addTagContain}>
+        <TouchableOpacity style={styles.addTagContain} onPress={handleEditTags}>
           <Icon name="edit" size={10} color={colors.white} />
         </TouchableOpacity>
       </View>

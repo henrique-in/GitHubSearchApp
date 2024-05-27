@@ -13,6 +13,10 @@ import {
   LanguageIcon,
   TimeIcon,
   EditIcon,
+  SearchIcon,
+  FilterIcon,
+  CloseIcon,
+  PlusIcon,
 } from '../../assets';
 
 export interface IconBase {
@@ -51,8 +55,11 @@ const iconRegistry = {
   'user-account': UserAccountIcon,
   language: LanguageIcon,
   time: TimeIcon,
-  plus: PlaceIcon,
+  plus: PlusIcon,
   edit: EditIcon,
+  search: SearchIcon,
+  filter: FilterIcon,
+  close: CloseIcon,
 };
 
 type IconType = typeof iconRegistry;

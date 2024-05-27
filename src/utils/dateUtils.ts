@@ -38,7 +38,7 @@ function formatRelative(dateISO: string) {
   }
 
   const diffInYears = Math.round(diffInMonths / 12);
-  return `${diffInYears} ${diffInYears === 1 ? 'an' : 'anos'} atrás`;
+  return `${diffInYears} ${diffInYears === 1 ? 'ano' : 'anos'} atrás`;
 
   // return format(date, 'dd/MM/yyyy');
 }

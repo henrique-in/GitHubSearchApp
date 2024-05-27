@@ -27,12 +27,8 @@ const getUserData = async (username: string) => {
     throw new Error('Este usuário não possui repositórios com estrelas');
   }
 
-  const getTotalStarCount = repoStars.reduce(
-    (acc, repo) => acc + repo.stargazers_count,
-    0,
-  );
   return {
-    user: userAdapter.toUser(userData, getTotalStarCount),
+    user: userAdapter.toUser(userData, repoStars.length),
     repo: listRepoAdapter.toRepo(repoStars),
   };
 };

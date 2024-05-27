@@ -39,7 +39,7 @@ export const Header = ({type = 'primary', avatarUrl}: Props) => {
       {type === 'secondary' && (
         <>
           <Icon name="arrow-left" onPress={() => navigation.goBack()} />
-          <Avatar url={avatarUrl as string} size={20} />
+          <Avatar url={avatarUrl as string} size={32} />
         </>
       )}
     </View>

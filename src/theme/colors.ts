@@ -13,6 +13,7 @@ const pallette = {
   yellow2: '#FFC700',
   yellowOpacity: 'rgba(255, 199, 0, 0.16)',
   internationalOrange: '#FF5100',
+  blackOpacity: 'rgba(0, 0, 0, 0.8)',
 };
 
 export const colors = {

@@ -6,3 +6,4 @@ export * from './Register/useCases/useRegisterUser';
 export * from './ListRepositories/useCases/useLoadRepo';
 export * from './ListRepositories/listRepositoryService';
 export * from './ListRepositories/listRepositoryTypes';
+export * from './ListRepositories/useCases/useRepoTags';

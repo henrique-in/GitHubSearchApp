@@ -5,3 +5,6 @@ export * from './Icon/Icon';
 export * from './Header/Header';
 export * from './CardUser/CardUser';
 export * from './CardRepo/CardRepo';
+export * from './ModalTags/ModalTags';
+export * from './Tag/Tag';
+export * from './InputSearch/InputSearch';

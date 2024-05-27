@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap',
-    marginVertical: 10,
+    marginVertical: 15,
   },
   addTagContain: {
     backgroundColor: colors.primary,
